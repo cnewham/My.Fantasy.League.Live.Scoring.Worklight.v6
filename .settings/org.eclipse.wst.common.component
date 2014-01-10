@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="MyFantasyLeagueScoring">
+        <wb-resource deploy-path="/" source-path="/apps/JOFFLScoring/common"/>
+        <wb-resource deploy-path="/" source-path="/apps/JOFFLScoring/android"/>
+        <wb-resource deploy-path="/" source-path="/apps/JOFFLScoring/iphone"/>
+        <property name="context-root" value="MyFantasyLeagueScoring"/>
+    </wb-module>
+</project-modules>

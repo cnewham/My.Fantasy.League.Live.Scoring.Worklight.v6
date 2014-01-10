@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>index</title>	
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    		<link rel="shortcut icon" href="images/favicon.png">
+    		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    		<link rel="stylesheet" href="css/main.css">
+    		<link rel="stylesheet" href="jqueryMobile/jquery.mobile-1.4.0.min.css">
+    		
+    		<script>window.$ = window.jQuery = WLJQ;</script>
+    		
+   		
+    		<script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+    		<script type="text/javascript" src="jqueryMobile/jquery.mobile-1.4.0.min.js"></script>
+    		<script type="text/javascript" src="js/lib/knockout-2.3.0.js"></script>
+
+    	</head>
+    	<body style="display: none;">
+   		
+<!--    		Live Scores Section -->
+			<div data-role="page" id="scores" data-theme="b">
+	    		<div data-role="header">
+	    			<h3>JOFFL Live Scoring</h3>
+	    		</div>
+	   			
+
+				<div data-role="content" id="scores" class="ui-content">
+					<div data-role="navbar">
+					    <ul>
+					        <li><a href="#" data-icon="recycle" id="refresh"></a></li>
+					        <li><a href="#config" data-icon="gear" id="settings-nav" data-transition="slide"></a></li>
+					    </ul>
+					</div>
+					<div id="lastupdate"></div>
+					
+					<ul id="matchups" data-bind="foreach: matchups">
+					 	<li>
+					 		<table id="matchup" class="ui-table">
+								<tr data-bind="foreach: franchises">
+						    	    <td id="franchise">
+					              		<div id="name" class="ui-bar ui-bar-a ui-corner-all" data-bind="css: { winning: $parent.winningId == id}">
+					               			<strong data-bind="text: name"></strong>
+						               	</div>
+							               	
+									    <table class="ui-table">
+								    		<thead>
+										        <tr class="th-groups">
+										            <th>Player</th>
+										            <th>Points</th>
+										        </tr>
+									    	</thead>
+									    	
+									        <tbody id="players" data-bind="foreach: players">
+									            <tr data-bind="highlightScore: points">
+									                <td width="80%" data-bind="css: {'not-started': status() == 0, playing: status() == 1, finished: status() == 2 }"><span data-bind="text: displayName"></span></td>
+									               	<td width="20%"><span data-bind="text: points"></span></td>
+									            </tr>
+									        </tbody>
+										        
+									        <tfoot id="totals">
+										        <tr>
+										        	<td><strong>Total:</strong></td>
+										        	<td><strong data-bind="text: total"></strong></td>
+										        </tr>
+										        <tr>
+										        	<td><strong>Remaining:</strong></td>
+										        	<td><strong data-bind="text: remaining"></strong></td>
+										        </tr>
+									    	</tfoot>
+									    </table>
+									    
+					               </td>
+						   		</tr>
+					  		</table>
+							<hr />
+						</li>
+					</ul>
+	   			</div>
+				
+				<div data-role="footer">
+
+				</div>
+			</div>
+    	
+    		<!-- Settings Section -->
+    		<div data-role="page" id="config" data-theme="b">
+	    		<div data-role="header">
+	    			<h3>Settings</h3>
+	    			<a href="#scores" class="ui-btn ui-btn-inline" data-transition="slide" data-rel="back">DONE</a>
+	    		</div>
+	   				   			
+				<div data-role="content" class="ui-content config-content">
+					<button class="ui-btn ui-btn-b" data-key="mflid">
+						<div class="config-name">League Id</div>
+						<div class="config-value"></div>
+					</button>
+					<button class="ui-btn ui-btn-b" data-key="week">
+						<div class="config-name">Week Number</div>
+						<div class="config-value"></div>
+					</button>
+					<button class="ui-btn ui-btn-b" data-key="refreshInterval">
+						<div class="config-name">Refresh Interval (sec)</div>
+						<div class="config-value"></div>
+					</button>
+	   			</div>
+	   			
+		
+				<div data-role="popup" id="config-popup" data-overlay-theme="b" data-theme="b" data-dismissible="false" data-transition="pop" style="max-width:400px;">
+				    <div data-role="header" data-theme="a">
+				    <h1 id="config-popup-name">config-popup-name</h1>
+				    </div>
+				    <div role="main" class="ui-content">
+				        <form>
+				        	<input type="hidden" name="config-popup-key" id="config-popup-key" value="config-popup-key">
+				    		<input type="text" name="config-popup-value" id="config-popup-value" value="config-popup-value">
+				    	</form>
+				    	
+				        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+				        <a href="#" id="config-save" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Save</a>
+				        
+				    </div>
+				</div>
+	   			
+				<div data-role="footer">
+
+				</div>
+			</div>
+		
+	</div>
+
+    		<script type="text/javascript" src="js/app/MyFantasyLeagueViewModel.js"></script>
+    		<script src="js/app/config.js"></script>  
+    		<script src="js/app/scores.js"></script>
+    		<script src="js/app/initOptions.js"></script>
+    		<script src="js/app/main.js"></script>
+    		<script src="js/app/messages.js"></script>
+  		
+    	</body>
+</html>

@@ -1,0 +1,122 @@
+/* Reset CSS */
+	a, abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, dialog, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+		margin: 0;
+		padding: 0;
+	}
+
+/* Worklight container div */
+	body {
+		margin: 0 auto;
+/* 		height: 460px; */
+/* 		width: 320px; */
+	}
+	
+
+	#matchups {
+		list-style-type: none;
+		display: inline-block;
+		padding: 0;
+	}
+	
+		#matchups li {
+			margin-bottom: 10;
+		}	
+
+		#name.winning {
+			background-color: green;
+		}
+	
+	
+	#players td {
+		border-bottom: 1px solid black;
+		padding: 7 15 0 0;
+		line-height: 1;
+	}
+
+/*Player states*/
+
+	.score {
+		background-color: green;
+	}
+	
+	.default {
+	}
+	
+	.score-neg {
+		background-color: red;	
+	}
+	
+	.not-started {
+		color: black;
+	}
+	
+	.playing {
+		font-weight: bold;
+	}
+	
+	.injured {
+		color: red;
+	}
+	
+	.finished {
+		color: gray;
+		font-style: italic;	
+	}
+	
+	#points {
+		text-align: right;
+	}
+
+/* Configuration Page */
+
+	.config-content button {
+		margin: 3px;
+		text-align: left;
+	}
+	
+	.config-key {
+	
+	}
+	
+	.config-value {
+		font-weight: normal;
+	}
+	
+	#config-popup {
+/* 		position: relative; */
+/* 		top:-150px; */
+	}
+	
+	
+
+/*Output Console*/
+
+	#console {
+		visibility: visible;
+		background-color: #424242;
+		border: 2px inset #FFF;
+		height: 100px;
+		float: left;
+		overflow: auto;
+		white-space: nowrap;
+		display: inline-block;
+		font-size: small;
+	}
+	
+		#console ul {
+			list-style-type: none;
+			display: inline-block;
+			margin: 3;
+			padding: 0;
+		}
+		
+		#console li {
+			font-family: Calibri,Arial;
+			color:#FFF;
+		}
+		
+		#console .error {
+			color:red;
+		}
+
+
